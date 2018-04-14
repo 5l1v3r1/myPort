@@ -1,16 +1,25 @@
-package myport.sharkletvecihi.com.myport;
+package myport.sharkletvecihi.com.myport.Activities;
+
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import myport.sharkletvecihi.com.myport.R;
 
 public class MainBottomActivity extends AppCompatActivity
 {
 
     private TextView mTextMessage;
+
+
+    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener()
@@ -19,19 +28,27 @@ public class MainBottomActivity extends AppCompatActivity
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item)
         {
+
+            Fragment selected = null;
+
             switch (item.getItemId())
             {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
+
                     return true;
                 case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
+
                     return true;
                 case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
+
                     return true;
             }
-            return false;
+
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_container, selected);
+            transaction.commit();
+
+            return true;
         }
     };
 
@@ -40,6 +57,7 @@ public class MainBottomActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_bottom);
+
 
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);

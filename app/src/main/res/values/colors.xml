@@ -2,5 +2,7 @@
 <resources>
     <color name="colorPrimary">#26343d</color>
     <color name="colorPrimaryDark">#212d35</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#607D8B</color>
+    <color name="buttonColor">#757575</color>
+    <color name="flightbg">#42A5F5</color>
 </resources>
