@@ -2,6 +2,7 @@ package myport.sharkletvecihi.com.myport.Fragments;
 
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -53,6 +55,7 @@ public class addflight extends Fragment {
     public flightadapter adapter = new flightadapter(flights);
     private RequestQueue mRequestQueue;
     private StringRequest mStringRequest;
+    private FloatingActionButton backBtn;
 
 
     public addflight() {
@@ -87,6 +90,14 @@ public class addflight extends Fragment {
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
+        backBtn = (FloatingActionButton)view.findViewById(R.id.flightbackbtn);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().finish();
+            }
+        });
             // Pass second argument as "null" for GET requests
 
 

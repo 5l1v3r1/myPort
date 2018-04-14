@@ -53,8 +53,6 @@ public class fragmentActivity extends AppCompatActivity {
                                     flight1.setFlightNumber(obj.getString("flightNumber"));
                                     flight1.setStad(obj.getString("stad"));
                                     addflight.newInstance().flights.add(flight1);
-                                    addflight.newInstance().adapter.notifyDataSetChanged();
-                                    addflight.newInstance().onCreateView(getLayoutInflater(), null ,savedInstanceState);
 
                                 } catch (JSONException e) {
                                     e.printStackTrace();
