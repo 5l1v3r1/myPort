@@ -129,9 +129,9 @@
 
                <Button
                    app:layout_constraintStart_toEndOf="@id/addbtn"
-                   android:id="@+id/btn2"
+                   android:id="@+id/btn_process"
                    android:layout_margin="5dp"
-                   android:text="deneme2"
+                   android:text="Process"
                    android:background="@drawable/button"
                    android:layout_height="75dp" />
            </TableRow>

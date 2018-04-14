@@ -6,11 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import myport.sharkletvecihi.com.myport.R;
 
-public class CardViewProcess extends ConstraintLayout
+public class CardViewProcess extends LinearLayout
 {
     private CheckBox checkBoxProcess;
     private TextView textViewProcess;
@@ -21,7 +23,7 @@ public class CardViewProcess extends ConstraintLayout
     {
         super(context);
         LayoutInflater layoutInflater = LayoutInflater.from(context);
-        View view = layoutInflater.inflate(R.layout.cardview_operational_process, this);
+        View view = layoutInflater.inflate(R.layout.cardview_operational_process, null);
         this.addView(view);
 
         textViewProcess = (TextView) findViewById(R.id.txtview_process);
@@ -32,10 +34,24 @@ public class CardViewProcess extends ConstraintLayout
             @Override
             public void onClick(View v)
             {
-                if(checkBoxProcess.isChecked())
+
+            }
+        });
+        checkBoxProcess.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+            {
+                if(next != null && isChecked)
                 {
-                    if(next != null)
-                        next.setEnabled(true);
+                    next.getCheckBoxProcess().setEnabled(true);
+                    next.getButtonExpand().setEnabled(true);
+                }
+
+                if(next != null && !isChecked)
+                {
+                    next.getCheckBoxProcess().setEnabled(false);
+                    next.getButtonExpand().setEnabled(false);
                 }
             }
         });
@@ -56,5 +72,13 @@ public class CardViewProcess extends ConstraintLayout
         this.next = cardViewProcess;
     }
 
+    public CheckBox getCheckBoxProcess()
+    {
+        return checkBoxProcess;
+    }
 
+    public Button getButtonExpand()
+    {
+        return buttonExpand;
+    }
 }

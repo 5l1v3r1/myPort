@@ -1,5 +1,6 @@
 package myport.sharkletvecihi.com.myport.Activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import myport.sharkletvecihi.com.myport.R;
 public class MainActivity extends AppCompatActivity {
 
     private Button addbtn;
+    private Button buttonProcess;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,17 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(v.getContext(), fragmentActivity.class);
                 startActivity(intent);
 
+            }
+        });
+
+        buttonProcess = (Button) findViewById(R.id.btn_process);
+        buttonProcess.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(v.getContext(), AirPortOpProcess.class);
+                startActivity(intent);
             }
         });
 

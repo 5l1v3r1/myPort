@@ -29,6 +29,7 @@ public class AirPortOpProcess extends AppCompatActivity
         listProcessView = new ArrayList<>();
         listProcess = new HashMap<>();
         listProcessActivity = new HashMap<>();
+        createProcess();
 
     }
 
@@ -72,12 +73,20 @@ public class AirPortOpProcess extends AppCompatActivity
             CardViewProcess process = new CardViewProcess(getApplicationContext());
             process.setText(listProcess.get(i));
             listProcessView.add(process);
+            linearLayoutListProcess.addView(listProcessView.get(i));
         }
 
-        for(int i=0; i<listProcess.size(); i++)
+        for(int i=0; i<linearLayoutListProcess.getChildCount(); i++)
         {
-            if(i != listProcess.size()-1)
-                listProcessView.get(0).setNextView(listProcessView.get(i+1));
+            if(i==0)
+            {
+                ((CardViewProcess) linearLayoutListProcess.getChildAt(i)).getCheckBoxProcess().setEnabled(true);
+                ((CardViewProcess) linearLayoutListProcess.getChildAt(i)).getButtonExpand().setEnabled(true);
+            }
+
+            if(i != linearLayoutListProcess.getChildCount()-1)
+                ((CardViewProcess) linearLayoutListProcess.getChildAt(i)).setNextView( ((CardViewProcess)linearLayoutListProcess.getChildAt(i+1) ) );
+
         }
     }
 }
