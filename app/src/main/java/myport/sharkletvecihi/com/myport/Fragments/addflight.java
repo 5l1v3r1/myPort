@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -33,6 +34,7 @@ import java.util.List;
 import myport.sharkletvecihi.com.myport.R;
 import myport.sharkletvecihi.com.myport.Holders.flightholder;
 import myport.sharkletvecihi.com.myport.Adapters.flightadapter;
+import myport.sharkletvecihi.com.myport.Activities.fragmentActivity;
 
 
 /**
@@ -45,7 +47,7 @@ public class addflight extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 
     private RecyclerView recyclerView;
-    private List<flight> flights;
+    public List<flight> flights;
     private flightadapter adapter;
     private RequestQueue mRequestQueue;
     private StringRequest mStringRequest;
@@ -74,9 +76,8 @@ public class addflight extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_addflight, container, false);
-        RequestQueue queue = Volley.newRequestQueue(getActivity());
 
-        String url = "http://35.159.15.121:8080/flightInformation/getList?code=IST&flightType=DOM&flightLeg=DEP&minStad=15%2F4%2F2018%2000%3A00&maxStad=16%2F4%2F2018%2000%3A00";
+
 
         flights = new ArrayList<>();
         adapter = new flightadapter(flights);
@@ -89,22 +90,12 @@ public class addflight extends Fragment {
         recyclerView.setAdapter(adapter);
 
 
-        mStringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
+            // Pass second argument as "null" for GET requests
 
-                Toast.makeText(view.getContext(),"Response :" + response.toString(), Toast.LENGTH_LONG).show();//display the response on screen
 
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
 
-                Log.i("response","Error :" + error.toString());
-            }
-        });
 
-        mRequestQueue.add(mStringRequest);
+
 
         /* Add your Requests to the RequestQueue to execute */
 
