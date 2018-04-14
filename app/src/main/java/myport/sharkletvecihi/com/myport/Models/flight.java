@@ -12,11 +12,25 @@ public class flight {
     String stad;
     String destinationEn;
 
-    public flight(String airlineName, String flightNumber, String airlineIata, String stad, String destinationEn) {
+
+
+    public void setAirlineName(String airlineName) {
         this.airlineName = airlineName;
+    }
+
+    public void setFlightNumber(String flightNumber) {
         this.flightNumber = flightNumber;
+    }
+
+    public void setAirlineIata(String airlineIata) {
         this.airlineIata = airlineIata;
+    }
+
+    public void setStad(String stad) {
         this.stad = stad;
+    }
+
+    public void setDestinationEn(String destinationEn) {
         this.destinationEn = destinationEn;
     }
 

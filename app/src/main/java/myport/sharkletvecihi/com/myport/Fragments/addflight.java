@@ -42,13 +42,15 @@ import myport.sharkletvecihi.com.myport.Activities.fragmentActivity;
  * Use the {@link addflight#newInstance} factory method to
  * create an instance of this fragment.
  */
+
+
 public class addflight extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 
     private RecyclerView recyclerView;
-    public List<flight> flights;
-    private flightadapter adapter;
+    public List<flight> flights = new ArrayList<>();
+    public flightadapter adapter = new flightadapter(flights);
     private RequestQueue mRequestQueue;
     private StringRequest mStringRequest;
 
@@ -78,17 +80,12 @@ public class addflight extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_addflight, container, false);
 
 
-
-        flights = new ArrayList<>();
-        adapter = new flightadapter(flights);
-
-
         recyclerView = (RecyclerView)view.findViewById(R.id.flightrecycler);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), 1);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
-
+        adapter.notifyDataSetChanged();
 
             // Pass second argument as "null" for GET requests
 
