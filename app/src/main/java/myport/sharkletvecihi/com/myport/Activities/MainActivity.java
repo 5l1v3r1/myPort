@@ -1,6 +1,5 @@
 package myport.sharkletvecihi.com.myport.Activities;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 

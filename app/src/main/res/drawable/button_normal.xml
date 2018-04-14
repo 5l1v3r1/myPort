@@ -13,7 +13,6 @@
 
             <solid android:color="#00EEEEEE" />
 
-            <corners android:radius="3dp" />
         </shape>
     </item>
     <item>
@@ -34,7 +33,6 @@
 
             <solid android:color="#20EEEEEE" />
 
-            <corners android:radius="3dp" />
         </shape>
     </item>
     <item>
@@ -47,7 +45,6 @@
 
             <solid android:color="#30EEEEEE" />
 
-            <corners android:radius="3dp" />
         </shape>
     </item>
     <item>
@@ -60,7 +57,6 @@
 
             <solid android:color="#50EEEEEE" />
 
-            <corners android:radius="3dp" />
         </shape>
     </item>
 
@@ -68,7 +64,6 @@
     <item>
         <shape>
             <solid android:color="@android:color/white" />
-            <corners android:radius="3dp" />
         </shape>
     </item>
 
