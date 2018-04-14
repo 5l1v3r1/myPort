@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -32,10 +33,10 @@ public class flightadapter extends RecyclerView.Adapter<flightholder> {
     @Override
     public void onBindViewHolder(flightholder holder, int position) {
         flight flight = flights.get(position);
-        holder.airlineName = flight.getAirlineName();
-        holder.destinationEn = flight.getDestinationEn();
-        holder.stad = flight.getStad();
-        holder.flightNumber = flight.getFlightNumber();
+        holder.airlineName.setText(flight.getAirlineName());
+        holder.destinationEn.setText(flight.getDestinationEn());
+        holder.stad.setText(flight.getStad());
+        holder.flightNumber.setText(flight.getFlightNumber());
     }
 
     @Override
