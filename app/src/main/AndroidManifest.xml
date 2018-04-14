@@ -9,21 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-<<<<<<< HEAD
-        <activity
-            android:name=".Activities.MainBottomActivity"
-            android:label="@string/title_activity_main_bottom">
-
-        </activity>
-=======
->>>>>>> 752174017b3cdf03066d2cf2942a71853a65bfcd
     </application>
 
 </manifest>

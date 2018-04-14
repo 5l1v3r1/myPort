@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<<<<<<< HEAD
-    <color name="colorPrimary">#26343d</color>
-    <color name="colorPrimaryDark">#212d35</color>
-    <color name="colorAccent">#607D8B</color>
-    <color name="buttonColor">#757575</color>
-    <color name="flightbg">#42A5F5</color>
-=======
     <color name="colorPrimary">#30a4fd</color>
     <color name="colorPrimaryDark">#30a4fd</color>
     <color name="colorAccent">#FF4081</color>
->>>>>>> 752174017b3cdf03066d2cf2942a71853a65bfcd
 </resources>

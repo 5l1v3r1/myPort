@@ -4,12 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
-    tools:context="myport.sharkletvecihi.com.myport.Activities.MainActivity">
-=======
     android:background="#FBFBFB"
     tools:context="myport.sharkletvecihi.com.myport.MainActivity">
->>>>>>> 752174017b3cdf03066d2cf2942a71853a65bfcd
 
 
     <TableLayout
@@ -27,7 +23,7 @@
                 <TableRow>
 
                     <TextView
-                        android:id="@+id/txtview_city"
+                        android:id="@+id/textview_city"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="25dp"
@@ -37,7 +33,7 @@
                         android:textSize="10pt" />
 
                     <ImageView
-                        android:id="@+id/imgview_weather_icon"
+                        android:id="@+id/_imgview_weather_icon"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:src="@drawable/weather"
@@ -82,7 +78,7 @@
                         android:textSize="10pt" />
 
                     <TextView
-                        android:id="@+id/txtview_wetness"
+                        android:id="@+id/txtview_"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="25dp"
@@ -94,7 +90,6 @@
                         android:textSize="7pt" />
 
                     <TextView
-                        android:id="@+id/txtview_wind"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="25dp"
