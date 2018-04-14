@@ -16,11 +16,6 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".MainBottomActivity"
-            android:label="@string/title_activity_main_bottom">
-
-        </activity>
     </application>
 
 </manifest>
