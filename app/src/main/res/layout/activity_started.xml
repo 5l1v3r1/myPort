@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.StartedActivity">
+
+    <TableLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="*">
+
+        <TableRow>
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/chkbox_1"
+                android:layout_gravity="center_vertical"
+                android:layout_height="50dp"
+                android:text="Music"/>
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/chkbox_2"
+                android:layout_gravity="center_vertical"
+                android:layout_height="50dp"
+                android:text="Food"/>
+        </TableRow>
+
+        <TableRow>
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/chkbox_3"
+                android:layout_gravity="center_vertical"
+                android:layout_height="50dp"
+                android:text="Movie"/>
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/chkbox_4"
+                android:layout_gravity="center_vertical"
+                android:layout_height="50dp"
+                android:text="Party"/>
+        </TableRow>
+
+        <TableRow>
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/chkbox_5"
+                android:layout_gravity="center_vertical"
+                android:layout_height="50dp"
+                android:text="shopping"/>
+
+        </TableRow>
+
+        <TableRow>
+                <TextView />
+                <Button
+                    android:id="@+id/btn_start"
+                    android:text="Start"/>
+        </TableRow>
+    </TableLayout>
+
+</android.support.constraint.ConstraintLayout>

@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Layout;
 import android.util.Log;
@@ -14,19 +17,26 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+
+import myport.sharkletvecihi.com.myport.Adapters.flightadapter;
 import myport.sharkletvecihi.com.myport.Models.flight;
 import myport.sharkletvecihi.com.myport.Fragments.addflight;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
+import java.util.List;
 
 import myport.sharkletvecihi.com.myport.R;
 
 public class fragmentActivity extends AppCompatActivity {
+
+    addflight aflight = new addflight();
+    private RecyclerView recyclerView;
+    public List<flight> flights = new ArrayList<>();
+    public flightadapter adapter;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -34,6 +44,10 @@ public class fragmentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_fragment);
         String url = "http://35.159.15.121:8080/flightInformation/getList?code=IST&flightType=DOM&flightLeg=DEP&minStad=15%2F4%2F2018%2000%3A00&maxStad=16%2F4%2F2018%2000%3A00";
 
+        recyclerView = (RecyclerView)findViewById(R.id.flightrecycler);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 1);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         JsonObjectRequest jsonRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -52,16 +66,15 @@ public class fragmentActivity extends AppCompatActivity {
                                     flight1.setDestinationEn(obj.getJSONObject("path").getJSONObject("destination").getString("destinationEn"));
                                     flight1.setFlightNumber(obj.getString("flightNumber"));
                                     flight1.setStad(obj.getString("stad"));
-                                    addflight.newInstance().flights.add(flight1);
-                                    addflight.newInstance().adapter.notifyDataSetChanged();
-                                    addflight.newInstance().onCreateView(getLayoutInflater(), null ,savedInstanceState);
+                                    flights.add(flight1);
 
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
-
                             }
-                            addflight.newInstance().adapter.notifyDataSetChanged();
+                            adapter = new flightadapter(flights);
+                            recyclerView.setAdapter(adapter);
+                            adapter.notifyDataSetChanged();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

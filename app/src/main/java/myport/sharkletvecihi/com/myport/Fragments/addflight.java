@@ -89,11 +89,6 @@ public class addflight extends Fragment {
 
             // Pass second argument as "null" for GET requests
 
-
-
-
-
-
         /* Add your Requests to the RequestQueue to execute */
 
 
