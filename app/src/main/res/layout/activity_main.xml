@@ -12,7 +12,7 @@
         android:id="@+id/table_weather"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorSecondary"
         android:padding="10dp"
         android:stretchColumns="0">
 
