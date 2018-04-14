@@ -121,14 +121,14 @@
 
            <TableRow>
                <Button
-                   android:id="@+id/btn1"
-                   android:text="deneme"
+                   android:id="@+id/addbtn"
+                   android:text="Add Flight"
                    android:layout_margin="5dp"
                    android:background="@drawable/button"
                    android:layout_height="75dp"/>
 
                <Button
-                   app:layout_constraintStart_toEndOf="@id/btn1"
+                   app:layout_constraintStart_toEndOf="@id/addbtn"
                    android:id="@+id/btn2"
                    android:layout_margin="5dp"
                    android:text="deneme2"
@@ -145,7 +145,7 @@
                    android:layout_height="75dp"/>
 
                <Button
-                   app:layout_constraintStart_toEndOf="@id/btn1"
+                   app:layout_constraintStart_toEndOf="@id/addbtn"
                    android:id="@+id/btn4"
                    android:layout_margin="5dp"
                    android:text="deneme2"
@@ -162,7 +162,7 @@
                    android:layout_height="75dp"/>
 
                <Button
-                   app:layout_constraintStart_toEndOf="@id/btn1"
+                   app:layout_constraintStart_toEndOf="@id/addbtn"
                    android:id="@+id/btn6"
                    android:layout_margin="5dp"
                    android:text="deneme2"
