@@ -1,6 +1,7 @@
 package myport.sharkletvecihi.com.myport.View;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.constraint.ConstraintLayout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import myport.sharkletvecihi.com.myport.Activities.MainActivity;
 import myport.sharkletvecihi.com.myport.R;
 
 public class CardViewProcess extends LinearLayout
@@ -19,12 +21,29 @@ public class CardViewProcess extends LinearLayout
     private Button buttonExpand;
     private CardViewProcess next = null;
 
+    public static final String MyPREFERENCES = "ProccessSettings" ;
+
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+    int count_step = 0;
+
     public CardViewProcess(Context context)
     {
+
         super(context);
         LayoutInflater layoutInflater = LayoutInflater.from(context);
         View view = layoutInflater.inflate(R.layout.cardview_operational_process, null);
         this.addView(view);
+
+        sharedPreferences = context.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        count_step = sharedPreferences.getInt("count_step", -1);
+        if(count_step == -1)
+        {
+            editor.putInt("count_step", 0);
+            editor.putString("next_step_name", "Travel to Airport");
+        }
 
         textViewProcess = (TextView) findViewById(R.id.txtview_process);
         checkBoxProcess = (CheckBox) findViewById(R.id.chkbox_process);
@@ -34,7 +53,7 @@ public class CardViewProcess extends LinearLayout
             @Override
             public void onClick(View v)
             {
-
+                open();
             }
         });
         checkBoxProcess.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
@@ -46,13 +65,20 @@ public class CardViewProcess extends LinearLayout
                 {
                     next.getCheckBoxProcess().setEnabled(true);
                     next.getButtonExpand().setEnabled(true);
+                    count_step++;
+                    editor.putInt("count_step", count_step);
+                    editor.putString("next_step_name", next.getOperation());
                 }
 
                 if(next != null && !isChecked)
                 {
                     next.getCheckBoxProcess().setEnabled(false);
                     next.getButtonExpand().setEnabled(false);
+                    count_step--;
+                    editor.putInt("count_step", count_step);
+                    editor.putString("next_step_name", getOperation());
                 }
+                editor.commit();
             }
         });
     }
@@ -72,6 +98,11 @@ public class CardViewProcess extends LinearLayout
         this.next = cardViewProcess;
     }
 
+    public String getOperation()
+    {
+        return textViewProcess.getText().toString();
+    }
+
     public CheckBox getCheckBoxProcess()
     {
         return checkBoxProcess;
@@ -80,5 +111,10 @@ public class CardViewProcess extends LinearLayout
     public Button getButtonExpand()
     {
         return buttonExpand;
+    }
+
+    public void open()
+    {
+
     }
 }

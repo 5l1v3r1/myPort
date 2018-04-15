@@ -1,11 +1,25 @@
 package myport.sharkletvecihi.com.myport.Activities;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationManager;
+import android.net.Uri;
+import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import myport.sharkletvecihi.com.myport.R;
 import myport.sharkletvecihi.com.myport.View.CardViewProcess;
@@ -17,6 +31,14 @@ public class AirPortOpProcess extends AppCompatActivity
     private LinearLayout linearLayoutListProcess;
     private HashMap<Integer, String> listProcess;
     private HashMap<Integer, Class> listProcessActivity;
+
+    private static final String[] REQUIRED_PERMISSION_LIST = new String[]{
+            Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.ACCESS_FINE_LOCATION
+    };
+    private List<String> missingPermission = new ArrayList<>();
+    private static final int REQUEST_PERMISSION_CODE = 12345;
+
 
 
     @Override
@@ -76,6 +98,7 @@ public class AirPortOpProcess extends AppCompatActivity
             linearLayoutListProcess.addView(listProcessView.get(i));
         }
 
+
         for(int i=0; i<linearLayoutListProcess.getChildCount(); i++)
         {
             if(i==0)
@@ -86,7 +109,14 @@ public class AirPortOpProcess extends AppCompatActivity
 
             if(i != linearLayoutListProcess.getChildCount()-1)
                 ((CardViewProcess) linearLayoutListProcess.getChildAt(i)).setNextView( ((CardViewProcess)linearLayoutListProcess.getChildAt(i+1) ) );
+        }
 
+        SharedPreferences preferences = getSharedPreferences("ProccessSettings", Context.MODE_PRIVATE);
+        int complete = preferences.getInt("count_step", 0);
+
+        for(int i=0; i<complete; i++)
+        {
+            ((CardViewProcess) linearLayoutListProcess.getChildAt(i)).setChecked(true);
         }
     }
 }

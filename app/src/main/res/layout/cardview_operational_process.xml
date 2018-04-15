@@ -24,6 +24,7 @@
                     android:text="Travel to Airport"/>
 
                 <Button
+                    android:visibility="invisible"
                     android:enabled="false"
                     android:id="@+id/btn_expand"
                     android:text="open"/>

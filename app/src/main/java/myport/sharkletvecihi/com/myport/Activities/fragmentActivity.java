@@ -37,12 +37,15 @@ public class fragmentActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     public List<flight> flights = new ArrayList<>();
     public flightadapter adapter;
+    public static fragmentActivity activity = null;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
         String url = "http://35.159.15.121:8080/flightInformation/getList?code=IST&flightType=DOM&flightLeg=DEP&minStad=15%2F4%2F2018%2000%3A00&maxStad=16%2F4%2F2018%2000%3A00";
+
+        activity = this;
 
         recyclerView = (RecyclerView)findViewById(R.id.flightrecycler);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 1);
@@ -91,4 +94,8 @@ public class fragmentActivity extends AppCompatActivity {
    
     }
 
+    public static void finishActicity()
+    {
+
+    }
 }
