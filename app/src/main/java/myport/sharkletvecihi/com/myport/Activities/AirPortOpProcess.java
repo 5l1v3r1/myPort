@@ -112,15 +112,13 @@ public class AirPortOpProcess extends AppCompatActivity
                 ((CardViewProcess) linearLayoutListProcess.getChildAt(i)).setNextView( ((CardViewProcess)linearLayoutListProcess.getChildAt(i+1) ) );
         }
 
-        SharedPreferences preferences = getSharedPreferences("ProccessSettings", Context.MODE_PRIVATE);
-        int complete = preferences.getInt("count_step", 0);
 
-        for(int i=0; i<complete; i++)
+        for(int i=0; i<MainActivity.count_step; i++)
         {
             if(((CardViewProcess) linearLayoutListProcess.getChildAt(i)) != null)
             {
+                CardViewProcess.out = true;
                 ((CardViewProcess) linearLayoutListProcess.getChildAt(i)).setChecked(true);
-                Log.e("COMPL", String.valueOf(complete));
             }
         }
     }
