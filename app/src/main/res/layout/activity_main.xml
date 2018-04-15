@@ -28,7 +28,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginLeft="25dp"
                         android:gravity="center_vertical"
-                        android:text="İstanbul / Türkiye"
+                        android:text="Istanbul / Turkey"
                         android:textColor="#FFFFFF"
                         android:textSize="10pt" />
 
@@ -124,12 +124,14 @@
                    android:id="@+id/addbtn"
                    android:text="Add Flight"
                    android:layout_margin="5dp"
+                   android:textColor="#FFFFFF"
                    android:background="@drawable/button"
                    android:layout_height="75dp"/>
 
                <Button
                    app:layout_constraintStart_toEndOf="@id/addbtn"
                    android:id="@+id/btn_process"
+                   android:textColor="#FFFFFF"
                    android:layout_margin="5dp"
                    android:text="Process"
                    android:background="@drawable/button"
@@ -142,6 +144,7 @@
                    android:id="@+id/btn3"
                    android:layout_height="75dp"
                    android:layout_margin="5dp"
+                   android:textColor="#FFFFFF"
                    android:background="@drawable/button"
                    android:text="Things to Do" />
 
@@ -149,23 +152,27 @@
                    android:id="@+id/eatbtn"
                    android:layout_height="75dp"
                    android:layout_margin="5dp"
+                   android:textColor="#FFFFFF"
                    android:background="@drawable/button"
                    android:text="Things to eat"
                    app:layout_constraintStart_toEndOf="@id/addbtn" />
            </TableRow>
 
            <TableRow>
+
                <Button
                    android:id="@+id/btn5"
-                   android:text="deneme"
+                   android:layout_height="75dp"
                    android:layout_margin="5dp"
+                   android:textColor="#FFFFFF"
                    android:background="@drawable/button"
-                   android:layout_height="75dp"/>
+                   android:text="Car Park Status" />
 
                <Button
                    android:id="@+id/btn6"
                    android:layout_height="75dp"
                    android:layout_margin="5dp"
+                   android:textColor="#FFFFFF"
                    android:background="@drawable/button"
                    android:text="Represantative"
                    app:layout_constraintStart_toEndOf="@id/addbtn" />
@@ -193,28 +200,15 @@
                 android:orientation="vertical">
 
 
-                <LinearLayout
-                    android:gravity="end"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                <TextView
+                    android:paddingLeft="5dp"
+                    android:textColor="#000000"
+                    android:gravity="center_vertical"
+                    android:id="@+id/text_status_1"
+                    android:text="deneme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-                    <TextView
-                        android:paddingLeft="5dp"
-                        android:textColor="#000000"
-                        android:gravity="center_vertical"
-                        android:id="@+id/text_status_1"
-                        android:text="deneme"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <CheckBox
-                        android:id="@+id/chkbox_complete"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp" />
-
-
-                </LinearLayout>
                 <ProgressBar
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_centerHorizontal="true"
