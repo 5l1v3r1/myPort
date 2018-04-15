@@ -137,20 +137,21 @@
            </TableRow>
 
            <TableRow>
-               <Button
-                   android:id="@+id/btn3"
-                   android:text="deneme"
-                   android:layout_margin="5dp"
-                   android:background="@drawable/button"
-                   android:layout_height="75dp"/>
 
                <Button
-                   app:layout_constraintStart_toEndOf="@id/addbtn"
-                   android:id="@+id/btn4"
+                   android:id="@+id/btn3"
+                   android:layout_height="75dp"
                    android:layout_margin="5dp"
-                   android:text="deneme2"
                    android:background="@drawable/button"
-                   android:layout_height="75dp" />
+                   android:text="Things to Do" />
+
+               <Button
+                   android:id="@+id/eatbtn"
+                   android:layout_height="75dp"
+                   android:layout_margin="5dp"
+                   android:background="@drawable/button"
+                   android:text="Things to eat"
+                   app:layout_constraintStart_toEndOf="@id/addbtn" />
            </TableRow>
 
            <TableRow>
@@ -162,12 +163,12 @@
                    android:layout_height="75dp"/>
 
                <Button
-                   app:layout_constraintStart_toEndOf="@id/addbtn"
                    android:id="@+id/btn6"
+                   android:layout_height="75dp"
                    android:layout_margin="5dp"
-                   android:text="deneme2"
                    android:background="@drawable/button"
-                   android:layout_height="75dp" />
+                   android:text="Represantative"
+                   app:layout_constraintStart_toEndOf="@id/addbtn" />
            </TableRow>
 
        </TableLayout>

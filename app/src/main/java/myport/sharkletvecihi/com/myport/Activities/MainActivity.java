@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textViewStatus1;
 
     private static String flyingTime = null;
+    private Button eatBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         addbtn = (Button)findViewById(R.id.addbtn);
+        eatBtn = (Button)findViewById(R.id.eatbtn);
 
         addbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +46,14 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(v.getContext(), fragmentActivity.class);
                 startActivity(intent);
 
+            }
+        });
+
+        eatBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), toEat.class);
+                startActivity(intent);
             }
         });
 
