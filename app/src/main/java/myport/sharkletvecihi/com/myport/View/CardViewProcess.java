@@ -20,6 +20,7 @@ public class CardViewProcess extends LinearLayout
     private TextView textViewProcess;
     private Button buttonExpand;
     private CardViewProcess next = null;
+    private  boolean out = false;
 
     public static final String MyPREFERENCES = "ProccessSettings" ;
 
@@ -68,6 +69,7 @@ public class CardViewProcess extends LinearLayout
                     count_step++;
                     editor.putInt("count_step", count_step);
                     editor.putString("next_step_name", next.getOperation());
+                    editor.commit();
                 }
 
                 if(next != null && !isChecked)
@@ -77,8 +79,8 @@ public class CardViewProcess extends LinearLayout
                     count_step--;
                     editor.putInt("count_step", count_step);
                     editor.putString("next_step_name", getOperation());
+                    editor.commit();
                 }
-                editor.commit();
             }
         });
     }
@@ -90,7 +92,7 @@ public class CardViewProcess extends LinearLayout
 
     public void setChecked(boolean is)
     {
-        checkBoxProcess.setChecked(is);
+        checkBoxProcess.setChecked(true);
     }
 
     public void setNextView(CardViewProcess cardViewProcess)
@@ -111,6 +113,11 @@ public class CardViewProcess extends LinearLayout
     public Button getButtonExpand()
     {
         return buttonExpand;
+    }
+
+    public void setOut(boolean out)
+    {
+        this.out = out;
     }
 
     public void open()

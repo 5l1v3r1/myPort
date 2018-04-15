@@ -71,9 +71,7 @@ public class fragmentActivity extends AppCompatActivity {
                                     flight1.setStad(obj.getString("stad"));
 
                                     addflight.newInstance().flights.add(flight1);
-
                                     flights.add(flight1);
-
 
                                 } catch (JSONException e) {
                                     e.printStackTrace();
