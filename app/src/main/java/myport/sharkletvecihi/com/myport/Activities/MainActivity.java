@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView textViewStatus1;
 
     private static String flyingTime = null;
+    public static int count_step = 0;
+    public static String next_op = "Airport to Travel";
     private Button eatBtn;
 
     @Override
@@ -130,12 +132,8 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         handler.postDelayed(runnable, 1000);
 
-        SharedPreferences preferences = getSharedPreferences("ProccessSettings", Context.MODE_PRIVATE);
-        int complete = preferences.getInt("count_step", 0);
-        String next_operation = preferences.getString("next_step_name", "Travel to Airpott");
-
-        progressBar.setProgress(complete);
-        textViewStatus1.setText("Next Airport Operation: " + next_operation);
+        progressBar.setProgress(count_step);
+        textViewStatus1.setText("Next Airport Operation: " + next_op);
     }
 
     public static void setFlyingTime(String flyingTime)

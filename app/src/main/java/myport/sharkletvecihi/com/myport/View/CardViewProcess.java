@@ -3,6 +3,7 @@ package myport.sharkletvecihi.com.myport.View;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.constraint.ConstraintLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -20,31 +21,17 @@ public class CardViewProcess extends LinearLayout
     private TextView textViewProcess;
     private Button buttonExpand;
     private CardViewProcess next = null;
-    private  boolean out = false;
+    public static  boolean out = false;
 
     public static final String MyPREFERENCES = "ProccessSettings" ;
 
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
-    int count_step = 0;
-
-    public CardViewProcess(Context context)
+    public CardViewProcess(final Context context)
     {
 
         super(context);
         LayoutInflater layoutInflater = LayoutInflater.from(context);
         View view = layoutInflater.inflate(R.layout.cardview_operational_process, null);
         this.addView(view);
-
-        sharedPreferences = context.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-        editor = sharedPreferences.edit();
-
-        count_step = sharedPreferences.getInt("count_step", -1);
-        if(count_step == -1)
-        {
-            editor.putInt("count_step", 0);
-            editor.putString("next_step_name", "Travel to Airport");
-        }
 
         textViewProcess = (TextView) findViewById(R.id.txtview_process);
         checkBoxProcess = (CheckBox) findViewById(R.id.chkbox_process);
@@ -62,24 +49,28 @@ public class CardViewProcess extends LinearLayout
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
             {
-                if(next != null && isChecked)
+                if(next != null && isChecked && !out)
                 {
                     next.getCheckBoxProcess().setEnabled(true);
                     next.getButtonExpand().setEnabled(true);
-                    count_step++;
-                    editor.putInt("count_step", count_step);
-                    editor.putString("next_step_name", next.getOperation());
-                    editor.commit();
+                    MainActivity.count_step++;
+                    MainActivity.next_op = next.getOperation();
                 }
 
-                if(next != null && !isChecked)
+                if(next != null && !isChecked && !out)
                 {
                     next.getCheckBoxProcess().setEnabled(false);
                     next.getButtonExpand().setEnabled(false);
-                    count_step--;
-                    editor.putInt("count_step", count_step);
-                    editor.putString("next_step_name", getOperation());
-                    editor.commit();
+                    MainActivity.count_step++;
+                    MainActivity.next_op = next.getOperation();
+                }
+
+                if(out)
+                {
+                    out = false;
+                    next.getCheckBoxProcess().setEnabled(true);
+                    next.getButtonExpand().setEnabled(true);
+                    MainActivity.next_op = next.getOperation();
                 }
             }
         });
