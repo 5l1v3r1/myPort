@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="myport.sharkletvecihi.com.myport">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,15 +21,16 @@
         </activity>
         <activity android:name=".Activities.AirPortOpProcess" />
         <activity android:name=".Activities.fragmentActivity" />
-
         <activity android:name=".Activities.toDo" />
-        <activity android:name=".Activities.toEat"></activity>
+        <activity android:name=".Activities.toEat" />
         <activity android:name=".Activities.StartedActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Activities.IntroActivity"></activity>
     </application>
 
 </manifest>

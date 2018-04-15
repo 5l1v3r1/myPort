@@ -63,7 +63,7 @@
     <!-- Background -->
     <item>
         <shape>
-            <solid android:color="@android:color/white" />
+            <solid android:color="@color/colorSecondary" />
         </shape>
     </item>
 
