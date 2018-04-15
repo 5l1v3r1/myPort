@@ -69,11 +69,11 @@ public class fragmentActivity extends AppCompatActivity {
                                     flight1.setDestinationEn(obj.getJSONObject("path").getJSONObject("destination").getString("destinationEn"));
                                     flight1.setFlightNumber(obj.getString("flightNumber"));
                                     flight1.setStad(obj.getString("stad"));
-<<<<<<< HEAD
+
                                     addflight.newInstance().flights.add(flight1);
-=======
+
                                     flights.add(flight1);
->>>>>>> f9c03e61ebb2fff0f0e3d20f4f190e4462de235c
+
 
                                 } catch (JSONException e) {
                                     e.printStackTrace();
